@@ -35,6 +35,7 @@ Inside each project:
 ```
 mkdir ~/Projects/[project-name]
 cd ~/Projects/[project-name]
+# All steps below run from inside this folder
 ```
 
 **2. Create CLAUDE.md**

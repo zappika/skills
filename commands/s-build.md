@@ -44,9 +44,9 @@ Assumed from design system: [what components or patterns were used or invented]
 Drifted from brief: [anything built that wasn't in scope, honest]
 
 Agent needed:
-  [ ] Sander -- [specific design question, if any]
-  [ ] CTO -- [specific technical/architecture question, if any]
-  [ ] Neither -- ready to continue
+  [x] Sander -- [specific design question] ← check this if sub-chunk involves any UI or visual decisions
+  [x] CTO -- [specific technical/architecture question] ← check this if sub-chunk involves any architecture or tooling decisions
+  [ ] Neither -- check this only if truly no agent input needed
 
 Next sub-chunk: [name]
 Keep going?
@@ -70,3 +70,4 @@ When all sub-chunks in the phase are done, check off the phase tasks in plan.md 
 - If a sub-chunk turns out bigger than expected, stop, split it, resurface the list
 - "It works" is not done -- it needs to meet the acceptance criteria in plan.md
 - If unsure whether something belongs in this sub-chunk, leave it out
+- If a sub-chunk involves any visual decisions (layout, color, components, styling) -- always flag Sander, even if there's no specific question. Default to flagging, not skipping.

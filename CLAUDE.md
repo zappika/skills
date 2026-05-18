@@ -25,6 +25,10 @@ When I type any of these, read the corresponding file and execute it immediately
 - `/s-review` → `~/Skills/commands/s-review.md`
 - `/s-wrap` → `~/Skills/commands/s-wrap.md`
 
+## Defaults
+- Deploy target is always Vercel connected to GitHub. Never suggest Netlify drop or any other shortcut.
+
+
 ## Agents
 
 When a decision comes up that isn't yours to make alone, route to the right agent.
