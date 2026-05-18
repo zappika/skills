@@ -57,8 +57,6 @@ Template:
 ## Current state
 [What works right now. Update this as the project grows.]
 
-## Skills
-See ~/Skills/ for reusable skills including cto-skill.md and bootstrap-skill.md.
 ```
 
 **3. Create plan.md**
