@@ -20,10 +20,10 @@ Reusable skills live in `~/Skills/`. Load them when relevant.
 
 When I type a command, read and execute the corresponding file:
 
-- `/plan` → `~/Skills/commands/plan.md`
-- `/build` → `~/Skills/commands/build.md`
-- `/review` → `~/Skills/commands/review.md`
-- `/wrap` → `~/Skills/commands/wrap.md`
+- /s-plan → ~/Skills/commands/s-plan.md
+- /s-build → ~/Skills/commands/s-build.md
+- /s-review → ~/Skills/commands/s-review.md
+- /s-wrap → ~/Skills/commands/s-wrap.md
 
 ## Agents
 
