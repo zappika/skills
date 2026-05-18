@@ -37,3 +37,6 @@ When a decision comes up that isn't yours to make alone, route to the right agen
 - **Technical/architecture decisions** -- route to CTO via `~/Skills/cto-skill.md`. Same process.
 
 Don't make design or architecture calls unilaterally. Stop, flag it in the handoff note, and wait.
+
+## MCPs
+- Vercel -- deploy, preview, and manage projects directly from the session
