@@ -24,3 +24,12 @@ When I type a command, read and execute the corresponding file:
 - `/build` → `~/Skills/commands/build.md`
 - `/review` → `~/Skills/commands/review.md`
 - `/wrap` → `~/Skills/commands/wrap.md`
+
+## Agents
+
+When a decision comes up that isn't yours to make alone, route to the right agent.
+
+- **Design decisions** -- route to Sander via `~/Skills/pair-designer.md`. Copy the handoff note from `/build` and paste it into Claude.ai with Sander loaded.
+- **Technical/architecture decisions** -- route to CTO via `~/Skills/cto-skill.md`. Same process.
+
+Don't make design or architecture calls unilaterally. Stop, flag it in the handoff note, and wait.
