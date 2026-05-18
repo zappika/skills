@@ -16,15 +16,17 @@ Brainstorm and write a plan.md before any code is touched.
 
 ## Goal
 [One paragraph: what this does and what done looks like.]
+**Progress:** `0%`
+
 
 ## Phase 1: [Name] ← start here, the interesting part
-- [ ] Task
-- [ ] Task
+- [ ] 🟥 Task
+- [ ] 🟥 Task
 Acceptance criteria: [How to know this phase is complete]
 
 ## Phase 2: [Name]
-- [ ] Task
-- [ ] Task
+- [ ] 🟥 Task
+- [ ] 🟥 Task
 Acceptance criteria: [How to know this phase is complete]
 
 ## Decision log
@@ -37,3 +39,4 @@ Acceptance criteria: [How to know this phase is complete]
 - Don't start Phase 2 until Phase 1 acceptance criteria are met
 - Update the decision log whenever a significant choice is made
 - If scope creep appears mid-build, add it as a future phase — don't fold it in
+- Update task emojis as you go: 🟥 to do, 🟨 in progress, 🟩 done. Update the Progress percentage when a phase completes.
