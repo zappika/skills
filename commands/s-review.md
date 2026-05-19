@@ -17,4 +17,4 @@ Check what actually changed before pushing.
 - Don't rubber-stamp. Actually read the diff.
 - Flag scope creep — anything changed that wasn't in the current phase
 - If unsure whether something is correct, say so rather than guessing
-- After review passes: `git add . && git commit -m "[phase name]: [what changed]" && git push`
+- After review passes: `git add . && git commit -m "[phase name]: [what changed]"`
