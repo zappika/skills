@@ -18,12 +18,12 @@ Reusable skills live in `~/Skills/`. Load them when relevant.
 
 ## Commands
 
-When I type any of these, read the corresponding file and execute it immediately. No need for me to say "read and execute" -- just do it.
+When I type any of these words alone on a line, read the corresponding file and execute it immediately:
 
-- `/s-plan` → `~/Skills/commands/s-plan.md`
-- `/s-build` → `~/Skills/commands/s-build.md`
-- `/s-review` → `~/Skills/commands/s-review.md`
-- `/s-wrap` → `~/Skills/commands/s-wrap.md`
+- `plan` → `~/Skills/commands/s-plan.md`
+- `build` → `~/Skills/commands/s-build.md`
+- `review` → `~/Skills/commands/s-review.md`
+- `wrap` → `~/Skills/commands/s-wrap.md`
 
 ## Defaults
 - Deploy target is always Vercel connected to GitHub. Never suggest Netlify drop or any other shortcut.
