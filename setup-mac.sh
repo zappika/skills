@@ -1,8 +1,10 @@
 #!/bin/bash
-
 # Mac setup script for Sarper
 # Run this on a fresh mac to get everything in place
 # After this: manually add Vercel MCP in the Claude app
+
+echo "Accepting Xcode license..."
+sudo xcodebuild -license accept
 
 echo "Installing Homebrew..."
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -24,6 +26,9 @@ git clone https://github.com/zappika/skills.git ~/Skills
 echo "Creating global CLAUDE.md..."
 mkdir -p ~/.claude
 curl -o ~/.claude/CLAUDE.md https://raw.githubusercontent.com/zappika/skills/main/CLAUDE.md
+
+echo "Fixing npm permissions..."
+sudo chown -R 501:20 "/Users/sarper/.npm"
 
 echo "Installing Vercel plugin..."
 npx plugins add vercel/vercel-plugin
