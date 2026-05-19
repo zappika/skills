@@ -17,11 +17,22 @@ eval "$(/opt/homebrew/bin/brew shellenv zsh)"
 echo "Installing gh and git..."
 brew install gh git
 
+echo "Configuring git..."
+git config --global user.email "erel.sarper@gmail.com"
+git config --global user.name "Sarper Erel"
+
 echo "Authenticating GitHub..."
 gh auth login
 
 echo "Cloning Skills repo..."
 git clone https://github.com/zappika/skills.git ~/Skills
+
+echo "Cloning personal projects..."
+mkdir -p ~/Projects
+cd ~/Projects
+gh repo clone zappika/french-wine-flashcards
+gh repo clone zappika/site
+gh repo clone zappika/playlists
 
 echo "Creating global CLAUDE.md..."
 mkdir -p ~/.claude
@@ -33,6 +44,10 @@ sudo chown -R 501:20 "/Users/sarper/.npm"
 echo "Installing Vercel plugin..."
 npx plugins add vercel/vercel-plugin
 
+echo "Installing apps..."
+brew install --cask claude figma google-chrome iterm2 linear slack proton-pass
+
 echo ""
-echo "Done. One manual step remaining:"
-echo "Add Vercel MCP in the Claude app settings."
+echo "Done. Two manual steps remaining:"
+echo "1. Add Vercel MCP in the Claude app settings."
+echo "2. Install from App Store: Flighty, MeetingBar, Menu Bar Controller for Sonos."
