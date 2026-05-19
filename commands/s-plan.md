@@ -4,10 +4,11 @@ Brainstorm and write a plan.md before any code is touched.
 
 ## Steps
 
-1. Ask Sarp what he's trying to build. One question: "What does done look like?"
-2. Identify the thinnest vertical slice that shows something real — not infrastructure, not login screens, the interesting part first.
-3. Break it into phases. Each phase ends with something visible or testable. Maximum 3-5 phases to start.
-4. Write plan.md in the project root.
+1. Check if plan.md exists in the project root. If it does, read it first -- summarize current state, which phase is active, and ask "Continue from this plan or start fresh?" before doing anything else.
+2. Ask Sarp what he's trying to build. One question: "What does done look like?"
+3. Identify the thinnest vertical slice that shows something real — not infrastructure, not login screens, the interesting part first.
+4. Break it into phases. Each phase ends with something visible or testable. Maximum 3-5 phases to start.
+5. Write plan.md in the project root.
 
 ## plan.md format
 
