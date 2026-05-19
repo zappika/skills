@@ -71,3 +71,4 @@ When all sub-chunks in the phase are done, check off the phase tasks in plan.md 
 - "It works" is not done -- it needs to meet the acceptance criteria in plan.md
 - If unsure whether something belongs in this sub-chunk, leave it out
 - If a sub-chunk involves any visual decisions (layout, color, components, styling) -- always flag Sander, even if there's no specific question. Default to flagging, not skipping.
+- If new scope is introduced during a build session that isn't in the current phase, stop immediately. Ask: "This isn't in the current phase -- add it as a future phase or fold it in?" If the answer is future phase, add it to plan.md as a new phase, confirm to Sarp: "Added as Phase X: [name]. It's in the plan, we'll get to it." Then continue with the current phase.
