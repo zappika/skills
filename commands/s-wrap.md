@@ -19,7 +19,7 @@ End-of-session ritual. Run this before closing Claude Code.
 5. Commit everything including the updated plan.md:
    `git add . && git commit -m "wrap: [one sentence summary]" && git push`
 
-6. Confirm Vercel deploy: check that the latest commit triggered a deployment at vercel.com. If the project isn't connected to Vercel yet, flag it as the next action.   
+6. Confirm deploy: check the project's CLAUDE.md for how it deploys. If it mentions AWS/EKS/GitHub Actions, verify the deploy workflow ran on GitHub Actions. If it mentions Vercel (or doesn't specify), check that the latest commit triggered a Vercel deployment. If deploy isn't set up yet, flag it as the next action.
 
 ## Rules
 
