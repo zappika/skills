@@ -18,7 +18,7 @@ git pull origin main
 git diff HEAD~1 --name-only
 ```
 
-Tell Sarp what changed in one line — e.g. "Pulled 2 updates: s-wrap.md and cto-skill.md." If already up to date, say nothing and move on.
+Tell Sarp what changed in one line. e.g. "Pulled 2 updates: s-wrap.md and cto-skill.md." If already up to date, say nothing and move on.
 
 Then check if local skills have unpushed changes:
 ```bash
@@ -39,11 +39,11 @@ git fetch origin
 git log HEAD..origin/main --oneline
 ```
 
-- ✅ Up to date → continue
-- ⚠️ Behind → pull, show what changed in one sentence, continue
-- ⚠️ Uncommitted local changes → show what they are, ask: "Commit these first or build on top of them?"
+- Up to date: continue
+- Behind: pull, show what changed in one sentence, continue
+- Uncommitted local changes: show what they are, ask: "Commit these first or build on top of them?"
 
-### 2. Read plan.md
+### 2. Read plan.md and check Linear
 
 If plan.md exists, read it and show Sarp this summary:
 
@@ -52,17 +52,25 @@ Project: [name]
 Phase [N] of [total]: [current phase name]
 
 Phases:
-  ✅ Phase 1: [name] — [one sentence: what this was]
-  🔄 Phase 2: [name] — [one sentence: what this is] ← current
-  ⬜ Phase 3: [name] — [one sentence: what this will be]
-  ⬜ Phase 4: [name] — [one sentence: what this will be]
+  Phase 1: [name] — [one sentence: what this was] ✅
+  Phase 2: [name] — [one sentence: what this is] ← current
+  Phase 3: [name] — [one sentence: what this will be]
+  Phase 4: [name] — [one sentence: what this will be]
 
 Last session ([date]): [what was built, where it stopped, next action]
 ```
 
+Then check Linear for the active issue on this project:
+
+```
+Active issue: [SAR-N] [title]: [one sentence from description]
+```
+
+If no Linear project exists for this repo, skip silently.
+
 Then ask: **"What do you want to work on today?"**
 
-That's it. Wait for the answer. Don't suggest sub-tasks, don't jump ahead.
+Wait for the answer. Don't suggest sub-tasks, don't jump ahead.
 
 ### 3. If there's no plan.md (first session on a new project)
 
@@ -85,7 +93,7 @@ Then write plan.md using the format below. Keep it to 3–5 phases. Interesting 
 ## Goal
 [One paragraph: what this does and what done looks like.]
 
-## Phase 1: [Name] ← interesting part first
+## Phase 1: [Name] — interesting part first
 - [ ] Task
 - [ ] Task
 Acceptance criteria: [How to know this phase is complete]
@@ -101,8 +109,8 @@ Acceptance criteria: [How to know this phase is complete]
 ## Rules
 
 - Skills sync always happens first, before anything else
-- Don't skip the project sync check — three machines means diverged state is common
-- The phase summary is mandatory — Sarp needs to see where he is before deciding what to do
-- Don't suggest what to work on — ask and wait
+- Don't skip the project sync check. Three machines means diverged state is common
+- The phase summary is mandatory. Sarp needs to see where he is before deciding what to do
+- Don't suggest what to work on. Ask and wait
 - First session on a new project is the exception, not the default flow
-- **Never build anything during /plan.** Not a file, not a component, not a fix. If the conversation moves toward building, stop and say: "Type `build` when you're ready to start." Ideating, planning, and discussing are fine. Touching code is not.
+- Never build anything during /plan. Not a file, not a component, not a fix. If the conversation moves toward building, stop and say: "Type `build` when you're ready to start." Ideating, planning, and discussing are fine. Touching code is not.
