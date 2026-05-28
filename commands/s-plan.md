@@ -1,36 +1,97 @@
 # /plan
 
-Brainstorm and write a plan.md before any code is touched.
+Orient the session. Sync everything. Understand where we are. Then ask what we're doing today.
 
 ## Steps
 
-1. Check if plan.md exists in the project root. If it does, read it first -- summarize current state, which phase is active, and ask "Continue from this plan or start fresh?" before doing anything else.
-2. Ask Sarp three things before doing anything else:
-   - What does this do? (one sentence)
-   - Who uses it?
-   - What does the first working version look like?
-3. Identify the thinnest vertical slice that shows something real — not infrastructure, not login screens, the interesting part first.
-4. Break it into phases. Each phase ends with something visible or testable. Maximum 3-5 phases to start.
-5. Write plan.md in the project root.
+### 0. Sync skills first
+
+Before anything else, update the skills repo:
+
+```bash
+cd ~/Skills && git fetch origin
+```
+
+If the remote is ahead, pull and report:
+```bash
+git pull origin main
+git diff HEAD~1 --name-only
+```
+
+Tell Sarp what changed in one line — e.g. "Pulled 2 updates: s-wrap.md and cto-skill.md." If already up to date, say nothing and move on.
+
+Then check if local skills have unpushed changes:
+```bash
+git status
+```
+
+If there are uncommitted changes in `~/Skills/`, commit and push them:
+```bash
+git add . && git commit -m "skills: sync from [machine name]" && git push
+```
+
+Tell Sarp: "Pushed local skills changes from this machine." Then move on.
+
+### 1. Sync the project
+
+```bash
+git fetch origin
+git log HEAD..origin/main --oneline
+```
+
+- ✅ Up to date → continue
+- ⚠️ Behind → pull, show what changed in one sentence, continue
+- ⚠️ Uncommitted local changes → show what they are, ask: "Commit these first or build on top of them?"
+
+### 2. Read plan.md
+
+If plan.md exists, read it and show Sarp this summary:
+
+```
+Project: [name]
+Phase [N] of [total]: [current phase name]
+
+Phases:
+  ✅ Phase 1: [name] — [one sentence: what this was]
+  🔄 Phase 2: [name] — [one sentence: what this is] ← current
+  ⬜ Phase 3: [name] — [one sentence: what this will be]
+  ⬜ Phase 4: [name] — [one sentence: what this will be]
+
+Last session ([date]): [what was built, where it stopped, next action]
+```
+
+Then ask: **"What do you want to work on today?"**
+
+That's it. Wait for the answer. Don't suggest sub-tasks, don't jump ahead.
+
+### 3. If there's no plan.md (first session on a new project)
+
+Ask:
+- What is this? (one sentence)
+- What does the first working version look like?
+
+Then write plan.md using the format below. Keep it to 3–5 phases. Interesting part in Phase 1.
 
 ## plan.md format
 
 ```
 # Plan: [Project Name]
 
+## Last session — [date]
+- What we built: [one sentence]
+- Where we stopped: [exactly where]
+- Next action: [the single next thing to do]
+
 ## Goal
 [One paragraph: what this does and what done looks like.]
-**Progress:** `0%`
 
-
-## Phase 1: [Name] ← start here, the interesting part
-- [ ] 🟥 Task
-- [ ] 🟥 Task
+## Phase 1: [Name] ← interesting part first
+- [ ] Task
+- [ ] Task
 Acceptance criteria: [How to know this phase is complete]
 
 ## Phase 2: [Name]
-- [ ] 🟥 Task
-- [ ] 🟥 Task
+- [ ] Task
 Acceptance criteria: [How to know this phase is complete]
 
 ## Decision log
@@ -39,8 +100,9 @@ Acceptance criteria: [How to know this phase is complete]
 
 ## Rules
 
-- The interesting part goes in Phase 1, not the plumbing
-- Don't start Phase 2 until Phase 1 acceptance criteria are met
-- Update the decision log whenever a significant choice is made
-- If scope creep appears mid-build, add it as a future phase — don't fold it in
-- Update task emojis as you go: 🟥 to do, 🟨 in progress, 🟩 done. Update the Progress percentage when a phase completes.
+- Skills sync always happens first, before anything else
+- Don't skip the project sync check — three machines means diverged state is common
+- The phase summary is mandatory — Sarp needs to see where he is before deciding what to do
+- Don't suggest what to work on — ask and wait
+- First session on a new project is the exception, not the default flow
+- **Never build anything during /plan.** Not a file, not a component, not a fix. If the conversation moves toward building, stop and say: "Type `build` when you're ready to start." Ideating, planning, and discussing are fine. Touching code is not.

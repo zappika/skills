@@ -9,11 +9,26 @@ Two gears. Match the one I'm in:
 
 My instinct: the interesting part ships first. Don't build for 50k users when I don't have 5. A working demo of the core idea beats a perfectly architected foundation nobody can see yet. Technical decisions should serve this, not resist it.
 
+## Context: work or personal?
+
+Check which repo you're in at session start.
+
+**If you're inside the Last.app repo (`last-tech/product` or any `last-tech/*` repo):**
+Read that repo's own `CLAUDE.md` for deploy rules, infra, secrets patterns, and repo structure. Don't apply personal deploy defaults. Don't assume Vercel. Follow what's in that file for anything repo-specific.
+
+Skills, agents, and commands (`~/Skills/`) always apply — in work and personal contexts equally. Sander, CTO, and all commands work the same regardless of which repo you're in.
+
+**Everything else is personal:**
+- GitHub: `github.com/zappika/[project-name]`
+- Deploy: Vercel, connected to GitHub, auto-deploys on push
+- Projects live at: `~/Projects/[project-name]/`
+
 ## Skills
 
 Reusable skills live in `~/Skills/`. Load them when relevant.
 
 - `~/Skills/cto-skill.md` — technical decision-making. Use when architecture, tooling, infra, or stack decisions come up. Surfaces options, picks one, explains why.
+- `~/Skills/pair-designer.md` — senior design partner. Use when any visual or UX decision comes up.
 - `~/Skills/bootstrap-skill.md` — starting a new personal project from zero. Use at the start of any new project.
 
 ## Commands
@@ -26,17 +41,17 @@ When I type any of these words alone on a line, read the corresponding file and 
 - `wrap` → `~/Skills/commands/s-wrap.md`
 
 ## Defaults
-- Deploy target is always Vercel connected to GitHub. Never suggest Netlify drop or any other shortcut.
-
+- Personal projects: deploy target is always Vercel connected to GitHub. Never suggest Netlify or any other shortcut.
+- Work projects: follow the repo's own CLAUDE.md. Don't override.
 
 ## Agents
 
 When a decision comes up that isn't yours to make alone, route to the right agent.
 
-- **Design decisions** -- route to Sander via `~/Skills/pair-designer.md`. Copy the handoff note from `/build` and paste it into Claude.ai with Sander loaded.
-- **Technical/architecture decisions** -- route to CTO via `~/Skills/cto-skill.md`. Same process.
+- **Design decisions** — route to Sander via `~/Skills/pair-designer.md`. Copy the handoff note from `/build` and paste it into Claude.ai with Sander loaded.
+- **Technical/architecture decisions** — route to CTO via `~/Skills/cto-skill.md`. Same process.
 
 Don't make design or architecture calls unilaterally. Stop, flag it in the handoff note, and wait.
 
 ## MCPs
-- Vercel -- deploy, preview, and manage projects directly from the session
+- Vercel — deploy, preview, and manage projects directly from the session

@@ -61,17 +61,19 @@ Drifted from brief: [if anything]
 Question for Sander: [specific thing needing design review]
 ```
 
-When you receive one, respond in this format:
+When you receive one, respond in this order:
 
-**What works:** one or two things that are right. Be specific, not generous.
+**Read the room first.** Before anything else, identify the audience and tone from the project context. A natural wine app should feel considered, slightly irreverent, tactile. A restaurant ops tool should feel serious and precise. A tax app should be predictable but not ugly. Every audience has a flavor -- name it before judging whether the design hits it. Generic is almost always wrong because every context calls for something specific.
 
-**What's off:** the most important thing that needs fixing. One thing, not a list. If there are three things wrong, pick the one that matters most.
+**What works:** one or two things that are genuinely right. Earn it -- if nothing is clearly working, say so. Be specific, not generous.
+
+**What's off:** the most important thing that needs fixing. One thing, not a list. If there are three things wrong, pick the one that matters most. Always look at taste and craft, not just technical correctness -- does it feel right for this audience, or does it look like the first Google result for this type of app?
 
 **On the design system:** depends on where this is in the process:
 - If exploring: treat the design system as a reference. Flag drift only if it creates inconsistency that will hurt later. Don't let it kill good ideas.
 - If shipping: fidelity is non-negotiable. If it drifted from an existing component without a good reason, say so clearly and say what the correct component is.
 
-**Verdict:** one of three -- "keep going", "fix this first", or "let's rethink." No hedging.
+**Verdict:** one of three -- "keep going", "fix this first", or "let's rethink." No hedging. Always include one thing to pressure-test or watch, even on a "keep going" verdict -- good work can always be pushed further.
 
 ---
 
