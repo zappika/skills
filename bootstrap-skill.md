@@ -1,6 +1,6 @@
 ---
 name: project-bootstrap
-description: Starting a new personal project from zero — creates the right folder structure, CLAUDE.md, GitHub repo, and Vercel connection so every project starts clean and consistent.
+description: Starting a new personal project from zero. Creates the right folder structure, CLAUDE.md, GitHub repo, Vercel connection, and Linear project so every project starts clean and consistent.
 ---
 
 # Project Bootstrap
@@ -39,7 +39,7 @@ cd ~/Projects/[project-name]
 ```
 
 **2. Create CLAUDE.md**
-Write it based on what Sarp describes. Keep it short — one paragraph on what the project is, one on the stack, one on how it deploys. This is the file Claude Code reads at the start of every session. It should be honest about what exists, not aspirational. Add a Skills section pointing to `~/Skills/`.
+Write it based on what Sarp describes. Keep it short: one paragraph on what the project is, one on the stack, one on how it deploys. This is the file Claude Code reads at the start of every session. It should be honest about what exists, not aspirational. Add a Skills section pointing to `~/Skills/`.
 
 Template:
 ```
@@ -57,7 +57,6 @@ Template:
 
 ## Current state
 [What works right now. Update this as the project grows.]
-
 ```
 
 **3. Create plan.md**
@@ -70,7 +69,7 @@ Template:
 ## Goal
 [One paragraph: what this does and what done looks like.]
 
-## Phase 1: [Name]
+## Phase 1: [Name] — interesting part first
 - [ ] Task
 - [ ] Task
 Acceptance criteria: [How to know this phase is complete]
@@ -85,12 +84,11 @@ Acceptance criteria: [How to know this phase is complete]
 ```
 
 Rules for plan.md:
-- Always brainstorm before writing phases — don't skip this
+- Always brainstorm before writing phases. Don't skip this
 - Phases should cut vertically through the stack (something visible at the end of each phase)
-- Update it as decisions get made — it's a living document
-- When starting a new Claude Code session, reference plan.md explicitly: "continue from plan.md, we're on Phase 2"
+- Update it as decisions get made. It's a living document
 
-**3. Create .gitignore**
+**4. Create .gitignore**
 Always include:
 ```
 .DS_Store
@@ -99,7 +97,7 @@ node_modules/
 .env.local
 ```
 
-**4. Initialize git and push to GitHub**
+**5. Initialize git and push to GitHub**
 ```
 git init
 git add .
@@ -111,23 +109,33 @@ git remote add origin https://github.com/zappika/[project-name].git
 git push -u origin main
 ```
 
-**5. Connect to Vercel**
+**6. Connect to Vercel**
 - Go to vercel.com
 - New Project → Import from GitHub → select the repo
 - Default settings are fine for static sites
 - Deploy
 
-**6. Confirm the pipe works**
-Make a small change, push it, watch Vercel deploy. This is the test. If this works, the project is alive.
+**7. Create the Linear project**
+In Claude.ai (personal account, Linear MCP connected), create a project in the Sarper workspace:
+- Name: [project name, same as repo]
+- Summary: one sentence on what this does
+- Description: what it is, the live URL once deployed, the GitHub repo, the deploy setup, current state
+- Lead: me
+- State: started
+
+This is the backlog from now on. Issues go here, not only in plan.md.
+
+**8. Confirm the pipe works**
+Make a small change, push it, watch Vercel deploy. If this works, the project is alive.
 
 ## Stack Defaults
 
 Don't ask Sarp to make these decisions unless something specific about the project changes them:
 
-- **Static site (no users):** Plain HTML + Vercel. No framework.
-- **App with user accounts:** Next.js + Supabase + Vercel. Supabase handles auth and database.
-- **Mobile / App Store:** React Native with Expo. Decide this upfront — it changes everything.
-- **Hardware / microcontroller:** Different path entirely, flag it and handle separately.
+- Static site (no users): Plain HTML + Vercel. No framework.
+- App with user accounts: Next.js + Supabase + Vercel. Supabase handles auth and database.
+- Mobile / App Store: React Native with Expo. Decide this upfront, it changes everything.
+- Hardware / microcontroller: Different path entirely, flag it and handle separately.
 
 ## What Good Looks Like
 
@@ -137,5 +145,6 @@ At the end of bootstrap, Sarp has:
 - A `plan.md` with at least Phase 1 written out before any code is touched
 - A GitHub repo with the code in it
 - A live URL from Vercel (even if it's just a blank page)
+- A Linear project with the project definition and ready to receive issues
 
 That's it. The project exists. Now build the thing.
