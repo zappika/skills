@@ -27,7 +27,11 @@ Inside each project:
   README.md         ← what this is
   index.html        ← or whatever the entry point is
   .gitignore        ← always
+  .claude/
+    launch.json     ← preview server config, on a port unique to this project
 ```
+
+Start every session from *inside* the project (`cd ~/Projects/[project-name]`), never from the `~/Projects` umbrella. The umbrella isn't a repo, and launching from it makes per-project tooling (git, preview servers) resolve against the wrong place.
 
 ## Steps
 
@@ -97,7 +101,28 @@ node_modules/
 .env.local
 ```
 
-**5. Initialize git and push to GitHub**
+**5. Create the preview config (.claude/launch.json)**
+Write it explicitly — don't let the preview tool auto-generate it, because that defaults every project to port 4321 and they collide. Pick a port unique to this project: scan the existing projects for ports already in use and take the next free one starting at 4321.
+```bash
+grep -rho '"port": [0-9]*' ~/Projects/*/.claude/launch.json 2>/dev/null | sort -u
+```
+Then write `.claude/launch.json` (replace `[PORT]` with the chosen free port):
+```json
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "[project-name]",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "-p", "[PORT]", "."],
+      "port": [PORT]
+    }
+  ]
+}
+```
+One project, one port, forever. Never reuse a port another project already claims.
+
+**6. Initialize git and push to GitHub**
 ```
 git init
 git add .
@@ -109,13 +134,13 @@ git remote add origin https://github.com/zappika/[project-name].git
 git push -u origin main
 ```
 
-**6. Connect to Vercel**
+**7. Connect to Vercel**
 - Go to vercel.com
 - New Project → Import from GitHub → select the repo
 - Default settings are fine for static sites
 - Deploy
 
-**7. Create the Linear project**
+**8. Create the Linear project**
 In Claude.ai (personal account, Linear MCP connected), create a project in the Sarper workspace:
 - Name: [project name, same as repo]
 - Summary: one sentence on what this does
@@ -125,7 +150,7 @@ In Claude.ai (personal account, Linear MCP connected), create a project in the S
 
 This is the backlog from now on. Issues go here, not only in plan.md.
 
-**8. Confirm the pipe works**
+**9. Confirm the pipe works**
 Make a small change, push it, watch Vercel deploy. If this works, the project is alive.
 
 ## Stack Defaults
@@ -141,6 +166,7 @@ Don't ask Sarp to make these decisions unless something specific about the proje
 
 At the end of bootstrap, Sarp has:
 - A folder at `~/Projects/[project-name]/`
+- A `.claude/launch.json` with a port unique to this project (no collisions with siblings)
 - A `CLAUDE.md` Claude Code can read next session
 - A `plan.md` with at least Phase 1 written out before any code is touched
 - A GitHub repo with the code in it
