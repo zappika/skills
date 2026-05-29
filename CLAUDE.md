@@ -21,7 +21,8 @@ Skills, agents, and commands (`~/Skills/`) always apply — in work and personal
 **Everything else is personal:**
 - GitHub: `github.com/zappika/[project-name]`
 - Deploy: Vercel, connected to GitHub, auto-deploys on push
-- Projects live at: `~/Projects/[project-name]/`
+- Projects live at: `~/Projects/[project-name]/` — each its own git repo and Vercel project. `~/Projects` itself is just an umbrella folder, not a repo. Start sessions from *inside* the project (`cd ~/Projects/<name>`), not the umbrella, or per-project tooling (git, preview servers) resolves against the wrong place.
+- Each project owns a unique preview port in its `.claude/launch.json`. If a preview server launches the wrong app or hits a busy port, suspect a stray umbrella-level `.claude/launch.json` or two projects sharing a port — fix that first.
 
 ## Skills
 
@@ -39,6 +40,7 @@ When I type any of these words alone on a line, read the corresponding file and 
 - `build` → `~/Skills/commands/s-build.md`
 - `review` → `~/Skills/commands/s-review.md`
 - `wrap` → `~/Skills/commands/s-wrap.md`
+- `identity` → `~/Skills/commands/s-identity.md`
 
 ## Defaults
 - Personal projects: deploy target is always Vercel connected to GitHub. Never suggest Netlify or any other shortcut.

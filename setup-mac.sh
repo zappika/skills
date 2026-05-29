@@ -34,9 +34,9 @@ gh repo clone zappika/french-wine-flashcards
 gh repo clone zappika/site
 gh repo clone zappika/playlists
 
-echo "Creating global CLAUDE.md..."
+echo "Linking global CLAUDE.md (symlink → repo, so edits sync instead of drifting)..."
 mkdir -p ~/.claude
-curl -o ~/.claude/CLAUDE.md https://raw.githubusercontent.com/zappika/skills/main/CLAUDE.md
+ln -sf ~/Skills/CLAUDE.md ~/.claude/CLAUDE.md
 
 echo "Fixing npm permissions..."
 sudo chown -R 501:20 "/Users/sarper/.npm"
