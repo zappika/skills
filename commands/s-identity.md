@@ -11,7 +11,7 @@ After the first real, branded page is live on its domain. If there's no brand ye
 1. `og.png` — a 1200×630 share card (the standard Open Graph size)
 2. `favicon.svg` + `favicon-32.png` + `apple-touch-icon.png` (180×180)
 3. Open Graph + Twitter Card meta + favicon link tags in the page `<head>`
-4. `og.html` + `icon.html` kept in the repo as regen sources
+4. `og.html` + `icon.html` kept in the repo as regen sources, but excluded from the deploy via `.vercelignore` so they aren't served publicly
 
 ## Steps
 
@@ -53,11 +53,15 @@ Absolute URLs only (`https://domain/og.png`), or the scrapers won't fetch them.
 - Icons: `rel=icon` svg, `rel=icon` png 32x32, `apple-touch-icon`
 - A plain `<meta name="description">` and a real `<title>`
 
-### 5. Ship and verify
+### 5. Keep the sources, don't serve them
 
-Commit, push, let it deploy. Then curl the live domain: the `og.png` / favicon endpoints return 200 and the tags are present in the served HTML. Don't trust localhost — verify on the domain.
+Add `og.html` and `icon.html` to `.vercelignore` (create it if absent). They stay in the repo so the assets can be regenerated, but Vercel won't serve them — no stray `domain/og.html` floating around. The generated PNGs/SVG still deploy because they're not ignored.
 
-### 6. Tell Sarp about caching
+### 6. Ship and verify
+
+Commit, push, let it deploy. Then curl the live domain: the `og.png` / favicon endpoints return 200, the ignored HTML sources return 404, and the tags are present in the served HTML. Don't trust localhost — verify on the domain.
+
+### 7. Tell Sarp about caching
 
 WhatsApp / iMessage / Facebook and browser tabs cache previews and favicons hard. Already-shared links and open tabs show the old version until refreshed. To force fresh: Facebook's Sharing Debugger → "Scrape Again", or share `domain/?v=1` to dodge the cache.
 
@@ -67,6 +71,6 @@ WhatsApp / iMessage / Facebook and browser tabs cache previews and favicons hard
 - Raster (PNG) for the share image. WhatsApp and iMessage don't read SVG.
 - Favicon / app-icon PNGs are full-bleed on a brand color — transparent corners go black on iOS.
 - Absolute URLs in every meta tag.
-- Keep `og.html` + `icon.html` in the repo so the assets can be regenerated, not reverse-engineered.
+- Keep `og.html` + `icon.html` in the repo so the assets can be regenerated, not reverse-engineered — but `.vercelignore` them so they're never served publicly.
 - Verify on the live domain, not localhost.
 - This is the lightest pass, not a brand system: share card + favicon. Don't gold-plate.
