@@ -40,7 +40,7 @@ When I type any of these words alone on a line, read the corresponding file and 
 - `build` → `~/Skills/commands/s-build.md`
 - `review` → `~/Skills/commands/s-review.md`
 - `wrap` → `~/Skills/commands/s-wrap.md`
-- `identity` → `~/Skills/commands/s-identity.md`
+- `s-identity` → `~/Skills/commands/s-identity.md`
 
 ## Defaults
 - Personal projects: deploy target is always Vercel connected to GitHub. Never suggest Netlify or any other shortcut.
