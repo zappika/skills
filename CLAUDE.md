@@ -28,6 +28,8 @@ Skills, agents, and commands (`~/Skills/`) always apply — in work and personal
 
 Reusable skills live in `~/Skills/`. Load them when relevant.
 
+`~/Skills/` is a git repo (github.com/zappika/skills). Any change to a skill, command, or this file must be committed and pushed immediately, in the same session that made it. A skill that only exists locally doesn't exist. When adding a new skill, also register it in the list below.
+
 - `~/Skills/cto-skill.md` — technical decision-making. Use when architecture, tooling, infra, or stack decisions come up. Surfaces options, picks one, explains why.
 - `~/Skills/pair-designer.md` — senior design partner. Use when any visual or UX decision comes up.
 - `~/Skills/bootstrap-skill.md` — starting a new personal project from zero. Use at the start of any new project.
