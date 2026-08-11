@@ -31,6 +31,7 @@ Reusable skills live in `~/Skills/`. Load them when relevant.
 - `~/Skills/cto-skill.md` — technical decision-making. Use when architecture, tooling, infra, or stack decisions come up. Surfaces options, picks one, explains why.
 - `~/Skills/pair-designer.md` — senior design partner. Use when any visual or UX decision comes up.
 - `~/Skills/bootstrap-skill.md` — starting a new personal project from zero. Use at the start of any new project.
+- `~/Skills/repo-archaeology.md` — answering "what did we build/ship about X" from any company's codebase via git history. Use when Sarp asks what shipped or what exists around a feature, or when onboarding onto a new company's repo.
 
 ## Commands
 
