@@ -43,6 +43,21 @@ git log HEAD..origin/main --oneline
 - Behind: pull, show what changed in one sentence, continue
 - Uncommitted local changes: show what they are, ask: "Commit these first or build on top of them?"
 
+### 1.5 Environment check (native projects)
+
+If the repo has an `ios/` folder, check the machine before anything else:
+
+```bash
+df -h /System/Volumes/Data | tail -1
+xcrun simctl list devices booted | grep -c Booted
+which xcodegen
+```
+
+- Under ~10 GB free: say so now. Xcode builds, DerivedData and a second simulator
+  eat gigabytes, and a full disk kills the session mid-build (it happened on Pinsta).
+- No simulator booted: boot the project's device before /build.
+- Missing xcodegen: `brew install xcodegen`.
+
 ### 2. Read plan.md and check Linear
 
 If plan.md exists, read it and show Sarp this summary:
@@ -58,6 +73,7 @@ Phases:
   Phase 4: [name] — [one sentence: what this will be]
 
 Last session ([date]): [what was built, where it stopped, next action]
+Waiting on Sarp: [the open asks, one line each — icon, account, decision…]
 ```
 
 Then check Linear for the active issue on this project:
@@ -102,8 +118,12 @@ Acceptance criteria: [How to know this phase is complete]
 - [ ] Task
 Acceptance criteria: [How to know this phase is complete]
 
-## Decision log
+## Waiting on Sarp
+- [Thing only Sarp can provide or decide, and what it unblocks]
+
+## Decisions log
 - [Date]: [Decision made and why]
+- [Date]: Rejected [option] because [why] — rejections are decisions too
 ```
 
 ## Rules
@@ -113,4 +133,5 @@ Acceptance criteria: [How to know this phase is complete]
 - The phase summary is mandatory. Sarp needs to see where he is before deciding what to do
 - Don't suggest what to work on. Ask and wait
 - First session on a new project is the exception, not the default flow
+- Match the gear. Brute-force mode (short messages, "just do it"): the summary is five lines, not a page. Learning mode: explain the why.
 - Never build anything during /plan. Not a file, not a component, not a fix. If the conversation moves toward building, stop and say: "Type `build` when you're ready to start." Ideating, planning, and discussing are fine. Touching code is not.
