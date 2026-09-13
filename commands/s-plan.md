@@ -2,6 +2,18 @@
 
 Orient the session. Sync everything. Understand where we are. Then ask what we're doing today.
 
+## Why this exists
+
+Hygiene, not ritual. The point is that the next session — on any machine, after
+any gap — can continue without re-deriving anything. Three artifacts carry that:
+
+- `plan.md` — Last session block, Waiting on Sarp, phases, dated decisions (rejections too)
+- the project's `CLAUDE.md` — how to run it, how the pieces fit, gotchas that cost time, data operations
+- commit messages whose body says *why*
+
+If those are current, the command did its job even when nobody typed it. If a
+command was typed but they're stale, it didn't.
+
 ## Steps
 
 ### 0. Sync skills first
@@ -60,7 +72,7 @@ which xcodegen
 
 ### 2. Read plan.md and check Linear
 
-If plan.md exists, read it and show Sarp this summary:
+If plan.md exists, read it (and the project `CLAUDE.md` if present) and show Sarp this summary:
 
 ```
 Project: [name]
@@ -95,6 +107,10 @@ Ask:
 - What does the first working version look like?
 
 Then write plan.md using the format below. Keep it to 3–5 phases. Interesting part in Phase 1.
+
+Also start the project's `CLAUDE.md` with four headings, filled in as things become true:
+`## Run it` · `## How the pieces fit` · `## Gotchas that cost time` · `## Data operations`.
+Claude Code reads it automatically, so every later session starts knowing how to run the thing.
 
 ## plan.md format
 

@@ -2,6 +2,18 @@
 
 Execute the current phase in plan.md. One sub-chunk at a time.
 
+## Why this exists
+
+Hygiene, not ritual. The point is that the next session — on any machine, after
+any gap — can continue without re-deriving anything. Three artifacts carry that:
+
+- `plan.md` — Last session block, Waiting on Sarp, phases, dated decisions (rejections too)
+- the project's `CLAUDE.md` — how to run it, how the pieces fit, gotchas that cost time, data operations
+- commit messages whose body says *why*
+
+If those are current, the command did its job even when nobody typed it. If a
+command was typed but they're stale, it didn't.
+
 ## Steps
 
 ### 1. Read the plan
@@ -27,9 +39,7 @@ Out of scope this pass: [2, 3]
 Good to go?
 ```
 
-Wait for confirmation before building.
-
-**Exception:** when Sarp hands over a bullet list of changes himself ("a few minor issues: …"), that list *is* the sub-chunk list. Confirm the reading in one line and go — don't make him approve his own list.
+State it, then go — unless the split is genuinely unclear, in which case ask. When Sarp hands over a bullet list himself ("a few minor issues: …"), that list *is* the sub-chunk list; don't make him approve it. The list exists so scope is visible, not as a gate.
 
 ### 3. Build one sub-chunk
 
@@ -40,6 +50,14 @@ Build only what's in the current sub-chunk. Nothing else. If something adjacent 
 **Low-tech first.** If a fix wants a paid API or an LLM, lead with the free heuristic and say what it can't do. Sarp pays when he has to, not before.
 
 **Two clients (web + iOS): web first.** Build and verify on web, then port to iOS in one pass. Shared rules live as documented ports (`lib/grouping.ts` ↔ `Services/Grouping.swift`) with the same comments, so a change to one is a change to both.
+
+### 3.4 Keep the notes current as you go
+
+The moment something becomes true, write it where the next session will find it — not at wrap:
+- a decision (or a rejected option) → `plan.md` Decisions log, dated
+- a gotcha that cost more than ten minutes → project `CLAUDE.md` › Gotchas
+- a new script, endpoint, env var, or run step → project `CLAUDE.md` › Run it / Data operations
+- something only Sarp can provide or decide → `plan.md` › Waiting on Sarp
 
 ### 3.5 Verify in the real surface
 
@@ -96,9 +114,9 @@ When all sub-chunks in the phase are done, check off the phase tasks in plan.md 
 
 ## Rules
 
-- Never start building before the sub-chunk list is confirmed
+- Never start building before the sub-chunk list is *stated* — Sarp should always be able to see the scope
 - One sub-chunk at a time -- never bleed into the next one
-- The handoff note is not optional -- write it after every sub-chunk
+- The handoff note is not optional -- write it after every sub-chunk. In brute-force mode it can be short, but "Verified", "Touched real data" and "What I need from you" never drop out.
 - If a sub-chunk turns out bigger than expected, stop, split it, resurface the list
 - "It works" is not done -- it needs to meet the acceptance criteria in plan.md
 - If unsure whether something belongs in this sub-chunk, leave it out

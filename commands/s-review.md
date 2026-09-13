@@ -1,6 +1,6 @@
 # /review
 
-Check what actually changed before pushing. Also the checklist /build runs at the end of every sub-chunk — standalone /review is for when a session built without the ritual.
+Check what actually changed before pushing — and that the notes (plan.md, project CLAUDE.md) moved with the code. Also the checklist /build runs at the end of every sub-chunk — standalone /review is for when a session built without the ritual.
 
 ## Steps
 
@@ -15,6 +15,7 @@ Check what actually changed before pushing. Also the checklist /build runs at th
    - No test data left behind in Sarp's real database; anything touched is restored.
    - Schema changes: pushed *and* backfilled, counts checked.
    - Web + iOS: if a shared rule changed on one side, the other side changed too (or the port is a listed next action).
+   - Notes moved with the code: new decision → plan.md; new gotcha/script/run step → project CLAUDE.md.
 4. Report findings to Sarp in plain language — not a list of every line, just what matters.
 5. If something looks off, fix it before pushing. If everything looks good, say so clearly.
 

@@ -1,6 +1,18 @@
 # /wrap
 
-End-of-session ritual. Run this before closing Claude Code.
+End-of-session checkpoint. Run this before closing Claude Code — and if a session ends without it, the next /plan does this first.
+
+## Why this exists
+
+Hygiene, not ritual. The point is that the next session — on any machine, after
+any gap — can continue without re-deriving anything. Three artifacts carry that:
+
+- `plan.md` — Last session block, Waiting on Sarp, phases, dated decisions (rejections too)
+- the project's `CLAUDE.md` — how to run it, how the pieces fit, gotchas that cost time, data operations
+- commit messages whose body says *why*
+
+If those are current, the command did its job even when nobody typed it. If a
+command was typed but they're stale, it didn't.
 
 ## Steps
 
@@ -36,6 +48,10 @@ If the remote is ahead: stop. Pull first, resolve anything, then continue.
 - Where we stopped: [exactly where, specific enough to pick up without thinking]
 - Next action: [the single next thing to do, not a list]
 ```
+
+### 3.4 Project CLAUDE.md
+
+Does it still tell a stranger how to run the project, how the pieces fit, what bit us, and how to touch the data? Add what this session learned. If the project has no `CLAUDE.md`, write one now — Pinsta went five phases without one.
 
 ### 3.5 Save what Sarp taught you
 
